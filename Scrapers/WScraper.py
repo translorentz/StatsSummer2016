@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import selenium
 from selenium.webdriver.common.keys import Keys
 import time
@@ -17,8 +20,9 @@ from selenium import webdriver
 from datetime import datetime
 from datetime import date
 import json
-reload(sys)  
-sys.setdefaultencoding('utf8')
+#reload(sys)  
+#sys.setdefaultencoding('utf-8')
+
 
 class w_scraper(object): 
     def login(self,credentialFile):
@@ -238,7 +242,7 @@ class w_scraper(object):
                     for p in range(0, len(post_stats)):
                         if ('转发' in post_stats[p].get_attribute("textContent")):
                             post['numForwards'] = re.sub("[^0-9]", "", post_stats[p].get_attribute("textContent"))
-                        if ('评论' in post_stats[p].get_attribute("textContent")):
+                        if ('评论'.decode('utf-8') in post_stats[p].get_attribute("textContent")):
                             post['numComments'] = re.sub("[^0-9]", "", post_stats[p].get_attribute("textContent"))
                             post['numLikes'] = re.sub("[^0-9]", "", post_stats[p+1].get_attribute("textContent"))
                 except ValueError:
@@ -320,9 +324,9 @@ w1.login(credFile)
 account_followers = list()
 account_followers = w1.getFollowers()
 print(len(account_followers))
-[x.encode('utf-8') for x in account_followers]
+account_followers_utf = [x.encode('utf-8') for x in account_followers]
 with open('WeiboFollowers.txt', 'w') as f:
-    f.write(account_data)
+    f.write(account_followers_utf)
 
 
 #account_data = list()

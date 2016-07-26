@@ -30,7 +30,8 @@ if (OS == "Linux"){
   system("echo 1 > /proc/sys/vm/drop_caches")
 }
 if (OS == "Linux1") setwd("/wps/home/wangjh/project/geotagged/")
-if (OS == "Mac") setwd("/Users/wangjianghao/Desktop/geotagged/")
+#if (OS == "Mac") setwd("/Users/wangjianghao/Desktop/geotagged/")
+if (OS == "Mac") setwd("/Users/debnil/Documents/Stanford/Senior/Research/SummerChina/Repo/Scrapers")
 
 # load functions
 source(file="fetch_weibo_APIs_fun_v2.1.R")
@@ -44,12 +45,13 @@ grid$Id <- seq(1,nrow(grid),1)
 fddf.blank <- read.csv("fddf_null.csv", fileEncoding="gbk")
 
 # initial input parameters
-month <- "CN-201411"  # I download it every month
+month <- "CN-20160725"  # I download it every month
 range <- 4000; sort=0; count=50; page=1; offset=1
-starttime <- as.numeric(strptime("2014-11-01 00:00:01", "%Y-%m-%d %H:%M:%S"))
-endtime <-   as.numeric(strptime("2014-11-30 23:59:59", "%Y-%m-%d %H:%M:%S"))
+starttime <- as.numeric(strptime("2016-07-25 00:00:01", "%Y-%m-%d %H:%M:%S"))
+endtime <- as.numeric(strptime("2016-07-25 23:59:59", "%Y-%m-%d %H:%M:%S"))
 # change access_token
-access_token <- "2.00X_6UXFI7nSsD008f8258ee0uqs6P"
+#access_token <- "2.00X_6UXFI7nSsD008f8258ee0uqs6P"
+access_token <- "2.00X_6UXFFwdXVBaaf98ddc1daYn7UD"
 # access_token <- "2.00X_6UXF0GqvuGca49b109136M4UTC"
 # access_token <- "2.00X_6UXFQ9y5QD678d6a30e80YnACX"
 # access_token <- "2.00X_6UXFwXYrFD089496f37cRKW2TB"
